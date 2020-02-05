@@ -5,7 +5,16 @@
   "main": "start.sh",
   "scripts": {
     "start": "./start.sh",
-    "test": "echo \"no test\""
+    "test": "echo \"no test\"",
+    "semantic-release": "semantic-release"
+  },
+  "devDependencies": {
+    "@semantic-release/commit-analyzer": "6.3.0",
+    "@semantic-release/git": "7.0.16",
+    "@semantic-release/github": "5.4.3",
+    "commitizen": "4.0.3",
+    "cz-conventional-changelog": "3.0.2",
+    "semantic-release": "15.13.24"
   },
   "repository": {
     "type": "git",

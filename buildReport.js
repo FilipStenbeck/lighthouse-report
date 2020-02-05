@@ -28,7 +28,7 @@ readFile(process.cwd() + '/' + process.argv[2])
   .then(data => {
     const fullReport = JSON.parse(data.toString());
     const output = buildOutput(fullReport);
-    console.log(output);
+    console.log(JSON.stringify(output));
   })
   .catch(error => {
     console.log(error);

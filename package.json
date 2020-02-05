@@ -1,5 +1,5 @@
 {
-  "name": "lighthouse-report",
+  "name": "@hi3g/lighthouse-report",
   "version": "0.0.1",
   "description": "Runs lighthouse audits",
   "main": "start.sh",

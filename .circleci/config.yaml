@@ -1,0 +1,93 @@
+# Javascript Node CircleCI 2.0 configuration file
+#
+# Check https://circleci.com/docs/2.0/language-javascript/ for more details
+#
+version: 2.1
+
+orbs:
+  jq: circleci/jq@1.9.0
+  azure-cli: circleci/azure-cli@1.0.0
+  frontend-deploy: hi3g-access/frontend-deploy@2.0.0
+
+jobs:
+  checkout:
+    docker:
+      - image: circleci/node:13.2.0
+    working_directory: ~/repo
+    steps:
+      - checkout
+      - save_cache:
+          paths:
+            - ~/repo
+          key: v1-repo-{{ .Environment.CIRCLE_SHA1 }}
+
+  install:
+    docker:
+      - image: circleci/node:13.2.0
+    working_directory: ~/repo
+    steps:
+      - frontend-deploy/install
+
+  versioning:
+    docker:
+      - image: circleci/node:13.2.0
+    working_directory: ~/repo
+    steps:
+      - frontend-deploy/versioning
+
+  publish:
+    docker:
+      - image: circleci/node:13.2.0
+    working_directory: ~/repo
+    executor: azure-cli/default
+    steps:
+      - jq/install
+      - frontend-deploy/publish:
+          username: $DOCKER_USER
+          password: $DOCKER_PASSWD
+          sshkey: $SSH_KEY
+          token: $GIT_COMMIT_TOKEN
+
+  deploy
+    docker:
+      - image: circleci/node:13.2.0
+    working_directory: ~/repo
+    steps:
+      - jq/install
+      - frontend-deploy/generate:
+          environment: prod
+      - frontend-deploy/deploy:
+          environment: prod
+          username: $AZURE_USER_NAME
+          password: $AZURE_PASSWORD
+
+  
+workflows:
+  version: 2
+  deploy:
+    jobs:
+      - checkout
+      - install:
+          requires:
+            - checkout
+
+      - versioning:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - checkout
+
+      - publish:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - versioning
+      # - deploy:
+      #     filters:
+      #       branches:
+      #         only:
+      #           - master

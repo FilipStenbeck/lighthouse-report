@@ -1,6 +1,6 @@
 {
   "name": "@hi3g/lighthouse-report",
-  "version": "1.0.0",
+  "version": "0.0.0-development",
   "description": "Runs lighthouse audits",
   "main": "start.sh",
   "scripts": {
@@ -14,7 +14,7 @@
     "@semantic-release/github": "5.4.3",
     "commitizen": "4.0.3",
     "cz-conventional-changelog": "3.0.2",
-    "semantic-release": "15.13.24"
+    "semantic-release": "^17.0.2"
   },
   "repository": {
     "type": "git",
@@ -25,5 +25,8 @@
     "audit"
   ],
   "author": "Filip Stenbeck",
-  "license": "ISC"
+  "license": "ISC",
+  "publishConfig": {
+    "access": "restricted"
+  }
 }

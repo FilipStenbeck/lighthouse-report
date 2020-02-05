@@ -12,7 +12,6 @@
         "noteKeywords": ["BREAKING CHANGE", "BREAKING CHANGES"]
       }
     }],
-    "@semantic-release/npm",
     "@semantic-release/release-notes-generator",
     "@semantic-release/git",
     "@semantic-release/github",

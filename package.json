@@ -16,18 +16,10 @@
     "cz-conventional-changelog": "3.0.2",
     "semantic-release": "15.13.24"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/hi3g-access/lighthouse-report.git"
-  },
   "keywords": [
     "lighthouse",
     "audit"
   ],
   "author": "Filip Stenbeck",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/hi3g-access/lighthouse-report/issues"
-  },
-  "homepage": "https://github.com/hi3g-access/lighthouse-report#readme"
+  "license": "ISC"
 }

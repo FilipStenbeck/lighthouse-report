@@ -13,11 +13,11 @@ ENVIRONMENT=$1
 USER=$2
 PASSWORD=$3
 
-BRANCH=$(git rev-parse --abbrev-ref HEAD)
-ENV_VARIABLES="variables/$ENVIRONMENT.env.json"
-
-export $(cat $ENV_VARIABLES | jq .general | jq -r 'to_entries|map("\(.key)=\(.value|tostring|split(" ")|join(" "))")|.[]')
-
+AZURE_TENANT_ID=d3d38dff-f85c-4026-842d-c215eb6b3560
+AZURE_SUBSCRIPTION=Hi3G-Web-SE-Prod
+AKS_CLUSTER_NAME=aks-webprod
+AKS_RESOURCE_GROUP=rg-webprod-aks
+    
 echo $AZURE_TENANT_ID $AZURE_SUBSCRIPTION $AKS_CLUSTER_NAME $AKS_RESOURCE_GROUP $AKS_RESOURCE_GROUP $AKS_CLUSTER_NAME
 az login --service-principal -u $USER -p $PASSWORD --tenant $AZURE_TENANT_ID
 echo setting subscription $AZURE_SUBSCRIPTION

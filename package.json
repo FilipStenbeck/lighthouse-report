@@ -3,6 +3,7 @@
   "version": "1.0.1",
   "description": "Runs lighthouse audits",
   "main": "start.sh",
+  "private": true,
   "scripts": {
     "start": "./start.sh",
     "test": "echo \"no test\"",

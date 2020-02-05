@@ -67,6 +67,7 @@ workflows:
   deploy:
     jobs:
       - checkout
+
       - install:
           requires:
             - checkout
@@ -77,15 +78,15 @@ workflows:
               only:
                 - master
           requires:
-            - checkout
+            - install
 
-      - publish:
-          filters:
-            branches:
-              only:
-                - master
-          requires:
-            - versioning
+      # - publish:
+      #     filters:
+      #       branches:
+      #         only:
+      #           - master
+      #     requires:
+      #       - versioning
       # - deploy:
       #     filters:
       #       branches:

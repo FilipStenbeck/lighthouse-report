@@ -3,23 +3,23 @@
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
-  namespace: test
+  namespace: ${ENVIRONMENT}
   name: lighthouse-deployment
   labels:
-    environment: test
+    environment: ${ENVIRONMENT}
     app-kubernetes-io/part-of: '3-SE'
 spec:
   template:
     metadata:
       labels:
         app: lighthouse
-        environment: test
+        environment: ${ENVIRONMENT}
         app-kubernetes-io/part-of: '3-SE'
     spec:
       imagePullSecrets:
         - name: regcred
       containers:
-        - image: hi3gcontainerregistry.azurecr.io/lighthouse-report:1.0.3
+        - image: ${DOCKER_IMAGE}
 
           resources:
             requests:

@@ -1,0 +1,24 @@
+{
+  "name": "lighthouse-report",
+  "version": "0.0.1",
+  "description": "Runs lighthouse audits",
+  "main": "start.sh",
+  "scripts": {
+    "start": "./start.sh",
+    "test": "echo \"no test\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hi3g-access/lighthouse-report.git"
+  },
+  "keywords": [
+    "lighthouse",
+    "audit"
+  ],
+  "author": "Filip Stenbeck",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hi3g-access/lighthouse-report/issues"
+  },
+  "homepage": "https://github.com/hi3g-access/lighthouse-report#readme"
+}

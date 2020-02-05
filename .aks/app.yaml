@@ -1,0 +1,32 @@
+# Automatically generated
+
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  namespace: test
+  name: lighthouse-deployment
+  labels:
+    environment: test
+    app-kubernetes-io/part-of: '3-SE'
+spec:
+  template:
+    metadata:
+      labels:
+        app: lighthouse
+        environment: test
+        app-kubernetes-io/part-of: '3-SE'
+    spec:
+      imagePullSecrets:
+        - name: regcred
+      containers:
+        - image: hi3gcontainerregistry.azurecr.io/lighthouse:1.10
+
+          resources:
+            requests:
+              memory: '256Mi'
+              cpu: '500m'
+            limits:
+              memory: '512Mi'
+              cpu: '500m'
+          imagePullPolicy: IfNotPresent
+          name: lighthouse

@@ -19,7 +19,7 @@ spec:
       imagePullSecrets:
         - name: regcred
       containers:
-        - image: hi3gcontainerregistry.azurecr.io/lighthouse:1.10
+        - image: hi3gcontainerregistry.azurecr.io/lighthouse-report:1.0.3
 
           resources:
             requests:

@@ -11,6 +11,7 @@ RUN npm i -g lighthouse
 
 # Add script 
 ADD start.sh .
+ADD lighthouse.sh .
 ADD buildReport.js .
 
 # create output folder"

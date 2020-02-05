@@ -48,7 +48,7 @@ jobs:
           sshkey: $SSH_KEY
           token: $GIT_COMMIT_TOKEN
 
-  deploy
+  deploy:
     docker:
       - image: circleci/node:13.2.0
     working_directory: ~/repo

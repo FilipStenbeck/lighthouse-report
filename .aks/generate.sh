@@ -13,4 +13,7 @@ export ENVIRONMENT=$1
 export DOCKER_IMAGE=hi3gcontainerregistry.azurecr.io/$APP_NAME:$APP_VERSION
 envsubst < $FROM >> $TO
 
+cat $TO
+
 echo Created manifest for $APP_NAME:$APP_VERSION
+

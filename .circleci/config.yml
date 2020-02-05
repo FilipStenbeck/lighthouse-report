@@ -61,6 +61,10 @@ jobs:
       - setup_remote_docker
       - azure-cli/install
       - run:
+        name: Install envsubst
+        command: |
+          sudo apt-get update && sudo apt-get install -y gettext-base
+      - run:
           name: Install kubectl
           command: sudo az aks install-cli --client-version "1.13.3"
       - run:

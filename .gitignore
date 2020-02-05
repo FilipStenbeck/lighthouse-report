@@ -6,4 +6,4 @@
 
 **/.vscode
 
-.aks/app.yaml
+**/.aks/app.yaml

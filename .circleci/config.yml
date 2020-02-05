@@ -110,3 +110,5 @@ workflows:
             branches:
               only:
                 - master
+          requires:
+            - publish

@@ -80,13 +80,13 @@ workflows:
           requires:
             - install
 
-      # - publish:
-      #     filters:
-      #       branches:
-      #         only:
-      #           - master
-      #     requires:
-      #       - versioning
+      - publish:
+          filters:
+            branches:
+              only:
+                - master
+          requires:
+            - versioning
       # - deploy:
       #     filters:
       #       branches:

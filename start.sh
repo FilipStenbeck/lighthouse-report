@@ -1,13 +1,13 @@
 #!/bin/sh
 node server.js &
 
+ _jq() {
+  echo ${row} | base64 --decode | jq -r ${1}
+}
+
 while [ true ] 
 do
   for row in $(cat audits.json | jq -r '.[] | @base64'); do
-      _jq() {
-      echo ${row} | base64 --decode | jq -r ${1}
-      }
-    echo $(_jq '.url') $(_jq '.name')
     ./lighthouse.sh  $(_jq '.url') $(_jq '.name')
   done
 

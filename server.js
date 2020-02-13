@@ -8,22 +8,32 @@ const template = require('./index.ejs');
 const app = express();
 const port = 3000;
 
-const serveReport = (req, res) => res.send(getIndex());
+const serveReport = (req, res) => getIndex(res);
 const health = (req, res) =>
   res.status(200).json({ name, version, status: 'up' });
+
+const getIndex = res => {
+  fs.readdir('reports', (error, result) => {
+    if (error) {
+      console.log('error getting reports from disc', error);
+      return res.send(
+        ejs.render(template, {
+          title: 'Reports',
+          reports: []
+        })
+      );
+    }
+
+    const reports = result
+      .filter(report => report.endsWith('.html'))
+      .filter(report => report !== 'latest.html')
+      .reverse();
+    return res.send(ejs.render(template, { title: 'Reports', reports }));
+  });
+};
 
 app.use(express.static('reports'));
 app.get('/', serveReport);
 app.get('/health', health);
-
-const getIndex = () => {
-  const reports = fs
-    .readdirSync('reports')
-    .filter(report => report.endsWith('.html'))
-    .filter(report => report !== 'latest.html')
-    .reverse();
-
-  return ejs.render(template, { title: 'Reports', reports });
-};
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`));

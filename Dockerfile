@@ -9,13 +9,19 @@ RUN yum install -y epel-release
 RUN yum install -y chromium
 RUN npm i -g lighthouse
 
-# Add script 
+# Install dependencies
+ADD package.json .
+RUN npm install
+
+# Add files
 ADD start.sh .
 ADD lighthouse.sh .
 ADD buildReport.js .
+ADD server.js .
+ADD index.ejs .
 
 # create output folder"
 RUN mkdir reports
 
 # Run Script
-CMD ./start.sh
+CMD ./start.sh;

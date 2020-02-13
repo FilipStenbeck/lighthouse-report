@@ -19,7 +19,8 @@ app.get('/health', health);
 const getIndex = () => {
   const reports = fs
     .readdirSync('reports')
-    .filter(report => report.endsWith('.html'));
+    .filter(report => report.endsWith('.html'))
+    .reverse();
 
   return ejs.render(template, { title: 'Reports', reports });
 };

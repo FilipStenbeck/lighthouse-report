@@ -7,6 +7,7 @@ RUN yum install -y gcc-c++ make
 RUN yum install -y nodejs
 RUN yum install -y epel-release
 RUN yum install -y chromium
+RUN yum install -y jq
 RUN npm i -g lighthouse
 
 # Install dependencies
@@ -20,6 +21,7 @@ ADD lighthouse.sh .
 ADD buildReport.js .
 ADD server.js .
 ADD index.ejs .
+ADD audits.json .
 
 # create output folder"
 RUN mkdir reports

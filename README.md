@@ -15,4 +15,12 @@ In command line run
 
 # Add urls to test
 
-In the file _start.sh_, add new urls inside the loop
+Add the URL and name of the page you want to audit in the file _audits.json_
+For example
+
+```
+{
+    "name": "handla-mobiltelefoner",
+    "url": "https://www.tre.se/handla/mobiltelefoner"
+  }
+```

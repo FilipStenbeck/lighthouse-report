@@ -13,6 +13,13 @@ In command line run
 ./start.sh
 ```
 
+Or using docker-compose
+
+```
+docker build . -t hi3gcontainerregistry.azurecr.io/lighthouse-report:latest
+docker-compose up
+```
+
 # Add urls to test
 
 Add the URL and name of the page you want to audit in the file _audits.json_

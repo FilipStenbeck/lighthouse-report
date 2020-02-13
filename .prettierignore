@@ -6,3 +6,4 @@ assets
 !.*
 CHANGELOG.md
 *.yml
+audits.json

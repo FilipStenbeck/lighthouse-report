@@ -1,11 +1,15 @@
 #!/bin/sh
 node server.js &
 
+ _jq() {
+  echo ${row} | base64 --decode | jq -r ${1}
+}
+
 while [ true ] 
 do
-  # ADD SSITES TO TEST HERE, URL and NAME #
-  ./lighthouse.sh https://www.tre.se/support support
-  ./lighthouse.sh https://www.tre.se/handla/mobiltelefoner handla-mobiltelefoner
+  for row in $(cat audits.json | jq -r '.[] | @base64'); do
+    ./lighthouse.sh  $(_jq '.url') $(_jq '.name')
+  done
 
   #Cleanup old files (older than 1 day)
   find reports/ -type f -mtime +1 -exec rm -f {} \;

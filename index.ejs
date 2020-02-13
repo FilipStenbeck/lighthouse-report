@@ -9,7 +9,7 @@ module.exports = ( `<!DOCTYPE html>
       <% if (reports.length) { %>
       <ul>
         <% reports.forEach((report) => { %>
-        <li><a href=/<%= report %> ><%= report %></a></li>
+        <li><a href=/performance-audit/<%= report %> ><%= report %></a></li>
         <% }) %>
       </ul>
       <% } %>

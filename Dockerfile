@@ -11,6 +11,7 @@ RUN npm i -g lighthouse
 
 # Install dependencies
 ADD package.json .
+ADD package-lock.json .
 RUN npm install
 
 # Add files

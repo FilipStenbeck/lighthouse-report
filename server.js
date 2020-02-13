@@ -20,6 +20,7 @@ const getIndex = () => {
   const reports = fs
     .readdirSync('reports')
     .filter(report => report.endsWith('.html'))
+    .filter(report => report !== 'latest.html')
     .reverse();
 
   return ejs.render(template, { title: 'Reports', reports });

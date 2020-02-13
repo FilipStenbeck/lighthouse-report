@@ -2,5 +2,7 @@ version: '3.7'
 
 services:
   lighthouse:
-    image: hi3gcontainerregistry.azurecr.io/lighthouse-report:1.0.3
+    image: hi3gcontainerregistry.azurecr.io/lighthouse-report:latest
     restart: always
+    ports:
+      - 3000:3000

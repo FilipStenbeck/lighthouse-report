@@ -6,4 +6,6 @@
 
 **/.vscode
 
+**/nohup.out
+
 **/.aks/app.yaml

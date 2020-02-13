@@ -1,0 +1,19 @@
+module.exports = ( `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Audits</title> 
+  </head>
+  <body>
+    <div>
+      <h3><%= title %></h3>
+      <% if (reports.length) { %>
+      <ul>
+        <% reports.forEach((report) => { %>
+        <li><a href=/<%= report %> ><%= report %></a></li>
+        <% }) %>
+      </ul>
+      <% } %>
+    </div>
+  </body>
+</html>
+` );

@@ -14,13 +14,28 @@ const getIndex = res => {
       );
     }
 
-    const reports = result
+    const raw = result
       .filter(report => report.endsWith('.html'))
       .filter(report => report !== 'latest.html')
       .reverse();
 
+    const reports = raw.map(report => {
+      return {
+        url: report,
+        site: report
+          .substr(0, report.length - 5)
+          .substr(report.lastIndexOf('-') + 1)
+      };
+    });
+
+    const pageReport = {};
+    const sites = [...new Set(reports.map(item => item.site))];
+    sites.forEach(site => (pageReport[site] = []));
+    reports.forEach(item => pageReport[item.site].push(item));
+
     const pageData = {
-      title: 'Audit reports',
+      title: 'Audits',
+      sites: Object.keys(pageReport),
       reports
     };
 

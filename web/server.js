@@ -7,8 +7,8 @@ process.on('unhandledRejection', (reason, promise) => {
 });
 
 process.on('uncaughtException', error => {
-  logger.error('Uncaught Exception, => service will reboot', error);
-  console.exit(1);
+  console.error('Uncaught Exception, => service will reboot', error);
+  process.exit(1);
 });
 
 app.listen(port, () => console.log(`app listening on port ${port}!`));

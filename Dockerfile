@@ -17,14 +17,9 @@ RUN npm install
 
 # Add files
 ADD start.sh .
-ADD lighthouse.sh .
-ADD buildReport.js .
-ADD server.js .
-ADD index.ejs .
-ADD audits.json .
-
-# create output folder"
-RUN mkdir reports
+ADD web /web
+ADD scripts /scripts
+ADD config /config
 
 # Run Script
 CMD ./start.sh;

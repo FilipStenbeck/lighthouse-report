@@ -1,0 +1,28 @@
+module.exports = ( `<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Audits</title> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  </head>
+  <body>
+    <div class="container">
+      <h3><%= title %></h3>
+      <% if (reports.length) { %>
+        <div class="row">
+          <% sites.forEach((site) => { %>
+            <div class="col">
+              <ul class="collection with-header">
+                <li class="collection-header"><h4><%=site %></h4></li>
+                <% reports.filter(item => item.site === site).forEach((report) => { %>
+                <li class="collection-item"><a  href=/performance-audit/<%= report.url %> ><%= report.url.substring(0, report.url.length - 5) %></a></li>
+                <% }) %>
+              </ul>
+            </div>
+            <% }) %>
+        </div>
+      <% } %>
+    </div>
+  </body>
+</html>
+` );

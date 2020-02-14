@@ -1,6 +1,6 @@
 const util = require('util');
 const fs = require('fs');
-const { name, version } = require('./package.json');
+const { name, version } = require('../package.json');
 
 const readFile = util.promisify(fs.readFile);
 

@@ -11,7 +11,7 @@ module.exports = ( `<!DOCTYPE html>
       <% if (reports.length) { %>
         <div class="row">
           <% sites.forEach((site) => { %>
-            <div class="col">
+            <div class="col s12 m4 l4">
               <ul class="collection with-header">
                 <li class="collection-header"><h4><%=site %></h4></li>
                 <% reports.filter(item => item.site === site).forEach((report) => { %>

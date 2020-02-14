@@ -2,9 +2,9 @@ const express = require('express');
 const ejs = require('ejs');
 const util = require('util');
 const fs = require('fs');
-const { name, version } = require('./package.json');
+const { name, version } = require('../package.json');
 
-const template = require('./index.ejs');
+const template = require('./views/index.ejs');
 const app = express();
 const port = 3000;
 

@@ -19,8 +19,7 @@ RUN npm install
 ADD start.sh .
 ADD lighthouse.sh .
 ADD buildReport.js .
-ADD server.js .
-ADD index.ejs .
+ADD web /web
 ADD audits.json .
 
 # create output folder"

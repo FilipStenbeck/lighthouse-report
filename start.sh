@@ -1,5 +1,5 @@
 #!/bin/sh
-node server.js &
+node web/server.js &
 
  _jq() {
   echo ${row} | base64 --decode | jq -r ${1}

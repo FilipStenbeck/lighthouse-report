@@ -5,8 +5,8 @@
   "main": "start.sh",
   "private": true,
   "scripts": {
-    "start": "node server.js",
-    "dev": "nodemon server.js",
+    "start": "node web/server.js",
+    "dev": "nodemon web/server.js",
     "test": "echo \"no test\"",
     "semantic-release": "semantic-release"
   },

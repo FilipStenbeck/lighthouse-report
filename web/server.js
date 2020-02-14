@@ -36,4 +36,4 @@ app.use(express.static('reports'));
 app.get('/', serveReport);
 app.get('/health', health);
 
-app.listen(port, () => console.log(`Example app listening on port ${port}!`));
+app.listen(port, () => console.log(`app listening on port ${port}!`));

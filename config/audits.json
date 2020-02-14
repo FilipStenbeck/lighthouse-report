@@ -3,7 +3,11 @@
     "url": "https://www.tre.se/support" 
   },
   {
-    "name": "Mobiltelefoner",
+    "name": "Webshop",
     "url": "https://www.tre.se/handla/mobiltelefoner"
+  },
+  {
+    "name": "Startpage",
+    "url": "https://www.tre.se/"
   }
 ]

@@ -14,28 +14,30 @@ const getIndex = res => {
       );
     }
 
-    const raw = result
+    const reports = result
       .filter(report => report.endsWith('.html'))
       .filter(report => report !== 'latest.html')
-      .reverse();
+      .reverse()
+      .map(report => {
+        return {
+          url: report,
+          site: report
+            .substr(0, report.length - 5)
+            .substr(report.lastIndexOf('-') + 1)
+        };
+      });
 
-    const reports = raw.map(report => {
-      return {
-        url: report,
-        site: report
-          .substr(0, report.length - 5)
-          .substr(report.lastIndexOf('-') + 1)
-      };
-    });
-
-    const pageReport = {};
-    const sites = [...new Set(reports.map(item => item.site))];
-    sites.forEach(site => (pageReport[site] = []));
-    reports.forEach(item => pageReport[item.site].push(item));
+    const getSites = reports => {
+      const pageReport = {};
+      const sites = [...new Set(reports.map(item => item.site))];
+      sites.forEach(site => (pageReport[site] = []));
+      reports.forEach(item => pageReport[item.site].push(item));
+      return Object.keys(pageReport);
+    };
 
     const pageData = {
       title: 'Audits',
-      sites: Object.keys(pageReport),
+      sites: getSites(reports),
       reports
     };
 

@@ -27,7 +27,7 @@ The project includes both scripts needed for running the audits and a webserver 
 ```
 lighthouse-report
   ├── config (application config for example which audits to run)
-  ├── scripts (everything related to runnin and generating reports)
+  ├── scripts (everything related to running and generating reports)
   └── web (node.js express server for serving reports online)
   │   ├── routes
   │   └── views
@@ -41,7 +41,7 @@ For example
 
 ```
 {
-    "name": "handla-mobiltelefoner",
-    "url": "https://www.tre.se/handla/mobiltelefoner"
+    "name": "foobar-statpage",
+    "url": "https://www.foobar.com/"
   }
 ```

@@ -41,7 +41,7 @@ For example
 
 ```
 {
-    "name": "foobar-statpage",
+    "name": "foobar-startpage",
     "url": "https://www.foobar.com/"
   }
 ```

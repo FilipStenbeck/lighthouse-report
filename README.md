@@ -16,7 +16,7 @@ In command line run
 Or using docker-compose
 
 ```
-docker build . -t hi3gcontainerregistry.azurecr.io/lighthouse-report:latest
+docker build . -t lighthouse-report:latest
 docker-compose up
 ```
 
